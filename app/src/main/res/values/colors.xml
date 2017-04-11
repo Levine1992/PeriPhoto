@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="lucency_gray_64">#643b3b3b</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white_240">#f1f0f0</color>
+
+    <color name="opacity_120_white_255">#78ffffff</color>
+    <color name="opacity_60_white_255">#3cffffff</color>
+    <color name="opacity_25_white_255">#19ffffff</color>
+    <color name="opacity_0_white_255">#00ffffff</color>
+    <color name="opacity_130_white_255">#82ffffff</color>
+    <color name="opacity_200_white_255">#c8ffffff</color>
+    <color name="opacity_170_white_255">#aaffffff</color>
+    <color name="opacity_0_black_100">#64000000</color>
+    <color name="opacity_0_black_20">#14000000</color>
+
+    <color name="gray_230">#e6e6e6</color>
+    <color name="gray_193">#B8C1BC</color>
+    <color name="gray_177">#b1b1b1</color>
+    <color name="gray_150">#969696</color>
+    <color name="gray_89">#585959</color>
+
+    <color name="black_59">#3b3b3b</color>
+    <color name="black_0">#000000</color>
+
+    <color name="cyan_135">#3B8787</color>
+    <color name="cyan_117">#3E7589</color>
+    <color name="cyan_147">#56938D</color>
+    <color name="cyan_48">#1E3030</color>
+
+    <color name="green_165">#5CA587</color>
+    <color name="green_198">#25c654</color>
+    <color name="opacity_100_green_198">#6425c654</color>
+
+    <color name="yellow_137">#80895A</color>
+
+    <color name="red_95">#985F6B</color>
+
+    <color name="purple_79">#614F81</color>
+
+    <color name="blue_195">#46c3fd</color>
+</resources>
