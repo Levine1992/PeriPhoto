@@ -9,7 +9,7 @@ public class MCategory implements MICategory{
 
     @Override
     public String[] factoryData() {
-        String[] strings={"情趣","丝袜","比基尼","制服","AV","性感","模特","美女"};
+        String[] strings={"情趣","丝袜","比基尼","制服","AV","性感","模特","美女","裙装"};
         return strings;
     }
 }

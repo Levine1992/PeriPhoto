@@ -38,6 +38,9 @@ public class MyFragmentManager {
             case 7:
                 fragment = Fragment8.getInstance();
                 break;
+            case 8:
+                fragment = Fragment9.getInstance();
+                break;
         }
         return fragment;
     }

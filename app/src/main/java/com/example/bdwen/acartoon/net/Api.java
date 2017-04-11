@@ -74,6 +74,10 @@ public interface Api {
      * type 美女
      */
     public final static String TYPE_MEINV = "meinv";
+    /**
+     * type 裙装
+     */
+    public final static String TYPE_QUNZHUANG = "qunzhuang";
 
     @FormUrlEncoded
     @POST("/959-1")
