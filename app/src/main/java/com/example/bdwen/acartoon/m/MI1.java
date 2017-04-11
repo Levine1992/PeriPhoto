@@ -6,4 +6,5 @@ package com.example.bdwen.acartoon.m;
 
 public interface MI1 {
     void getNetList(MIOnNetListener mIOnNetListener, String type);
+    void cancel();
 }

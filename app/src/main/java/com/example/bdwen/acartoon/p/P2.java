@@ -33,4 +33,7 @@ public class P2 {
             }
         },id);
     }
+    public void cancel(){
+        m2.cancel();
+    }
 }

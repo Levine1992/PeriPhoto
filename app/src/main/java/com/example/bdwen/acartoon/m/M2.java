@@ -13,7 +13,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Administrator on 2017/4/10 0010.
  */
 
-public class M2 implements MI2{
+public class M2 implements MI2 {
+
+    private Call<B2> bDetailsCall;
+
     @Override
     public void getDetails(final MIOnNetListener miOnNetListener, String id) {
         Api api = new Retrofit.Builder()
@@ -21,12 +24,14 @@ public class M2 implements MI2{
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(Api.class);
-        Call<B2> bDetailsCall = api.apiDetails(Api.APPID, Api.SECRET, id);
+        bDetailsCall = api.apiDetails(Api.APPID, Api.SECRET, id);
         bDetailsCall.enqueue(new Callback<B2>() {
             @Override
             public void onResponse(Call<B2> call, Response<B2> response) {
                 B2 body = response.body();
-                miOnNetListener.success(body);
+                if (body.getShowapi_res_code() == 0 && body.getShowapi_res_body().getImgList() != null) {
+                    miOnNetListener.success(body);
+                }
             }
 
             @Override
@@ -34,5 +39,10 @@ public class M2 implements MI2{
                 miOnNetListener.error(t);
             }
         });
+    }
+
+    @Override
+    public void cancel() {
+        bDetailsCall.cancel();
     }
 }

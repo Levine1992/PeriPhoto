@@ -15,6 +15,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class M1 implements MI1 {
+
+    private Call<B1> bDetailsCall;
+
     @Override
     public void getNetList(final MIOnNetListener mIOnNetListener, String type) {
         Api api = new Retrofit.Builder()
@@ -22,7 +25,7 @@ public class M1 implements MI1 {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(Api.class);
-        Call<B1> bDetailsCall = api.apiList(Api.APPID, Api.SECRET, type);
+        bDetailsCall = api.apiList(Api.APPID, Api.SECRET, type);
         bDetailsCall.enqueue(new Callback<B1>() {
             @Override
             public void onResponse(Call<B1> call, Response<B1> response) {
@@ -35,6 +38,13 @@ public class M1 implements MI1 {
                 mIOnNetListener.error(t);
             }
         });
+    }
+
+    @Override
+    public void cancel() {
+        if (bDetailsCall!=null){
+            bDetailsCall.cancel();
+        }
     }
 
 }

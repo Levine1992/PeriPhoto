@@ -29,7 +29,7 @@ public class P1 {
             public void success(Object object) {
                 vi1.hideLoading();
                 B1 b1= (B1) object;
-                if (b1.getShowapi_res_code()==0){
+                if (b1.getShowapi_res_code()==0&&b1.getShowapi_res_body()!=null){
                     vi1.showData((B1) object);
                 }else {
                     vi1.error(null);
@@ -42,6 +42,10 @@ public class P1 {
                 vi1.error(t);
             }
         }, type);
+    }
+
+    public void cancel(){
+        m1.cancel();
     }
 
 }

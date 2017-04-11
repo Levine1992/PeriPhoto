@@ -120,6 +120,12 @@ public class DetailsActivity extends BaseActivity implements VI2, PhotoViewAttac
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        p2.cancel();
+    }
+
+    @Override
     public void onPhotoTap(View view, float x, float y) {
         finish();
     }

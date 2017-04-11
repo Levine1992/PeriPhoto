@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="一本漫画"
+        android:text="美女嘿嘿嘿"
         android:textColor="@android:color/white"
         android:textSize="18dp" />
 

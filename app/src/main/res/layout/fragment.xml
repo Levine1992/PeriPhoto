@@ -9,4 +9,7 @@
         android:layout_height="wrap_content" />
 
     <include layout="@layout/view_progressbar" />
+
+    <include
+        layout="@layout/view_net_error"/>
 </RelativeLayout>

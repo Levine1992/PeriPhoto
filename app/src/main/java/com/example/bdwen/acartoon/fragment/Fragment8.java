@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
@@ -37,14 +38,15 @@ import butterknife.Unbinder;
  * 少年
  */
 
-public class Fragment8 extends Fragment implements VI1 {
+public class Fragment8 extends Fragment implements VI1, View.OnClickListener {
     private static final String TAG = "Fragment1";
     private static Fragment8 fragment1;
     @BindView(R.id.fragment_juvenile_recycleview)
     RecyclerView fragmentJuvenileRecycleview;
-    Unbinder unbinder;
     @BindView(R.id.view_progressbar_pb)
     ProgressBar viewProgressbarPb;
+    @BindView(R.id.view_net_error_tv)
+    TextView viewNetErrorTv;
     private View mView;
     private P1 p1;
 
@@ -68,7 +70,7 @@ public class Fragment8 extends Fragment implements VI1 {
         if (mView == null) {
             mView = inflater.inflate(R.layout.fragment, container, false);
         }
-        unbinder = ButterKnife.bind(this, mView);
+        ButterKnife.bind(this, mView);
         if (fragmentJuvenileRecycleview.getAdapter() == null) {
             p1.getList(Api.TYPE_MEINV);
         }
@@ -78,24 +80,27 @@ public class Fragment8 extends Fragment implements VI1 {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        p1.cancel();
     }
 
     @Override
     public void showLoading() {
+        viewNetErrorTv.setVisibility(View.GONE);
         fragmentJuvenileRecycleview.setVisibility(View.GONE);
         viewProgressbarPb.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
+        viewNetErrorTv.setVisibility(View.GONE);
         fragmentJuvenileRecycleview.setVisibility(View.VISIBLE);
         viewProgressbarPb.setVisibility(View.GONE);
     }
 
     @Override
     public void error(Throwable t) {
-        T.showShort(getActivity(), "请求失败");
+        viewNetErrorTv.setVisibility(View.VISIBLE);
+        viewNetErrorTv.setOnClickListener(this);
     }
 
     @Override
@@ -129,5 +134,16 @@ public class Fragment8 extends Fragment implements VI1 {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.view_net_error_tv:
+                if (fragmentJuvenileRecycleview.getAdapter() == null) {
+                    p1.getList(Api.TYPE_QINGQU);
+                }
+                break;
+        }
     }
 }
